@@ -6,5 +6,7 @@ $app= new \Slim\App([
     ]
 ]);
 require '../app/container.php';
+
 $app->get('/',\App\Controllers\PageController::class .':home');
+$app->get('/connexion', \App\Controllers\PageController::class.':connexion');
 $app->run();
