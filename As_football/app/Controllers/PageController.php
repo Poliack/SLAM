@@ -6,6 +6,12 @@ use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
 Class PageController extends Controller {
+    // FUNCTION TEST
+    public function TEST(RequestInterface $request, ResponseInterface $response){
+        $this->query($response,'Select from * users');
+        $this->render($response,'pages/affiche.twig');
+
+    }
 
     public function home(RequestInterface $request,ResponseInterface $response){
         $this->render($response,'pages/home.twig',['name'=> 'Marc']);
@@ -13,9 +19,9 @@ Class PageController extends Controller {
     public function connexion(RequestInterface $request,ResponseInterface $response){
         $this->render($response,'pages/connexion.twig');
     }
-    public function select(RequestInterface $request, ResponseInterface $response){
-        $this->query($response,'SELECT FROM * users');
-        $this->render($response,'pages/affiche.twig');
-
+    public function compte (ResponseInterface $request,ResponseInterface $response){
+        $this->render($response,'pages/compte.twig');
     }
+
+
 }

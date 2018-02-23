@@ -20,6 +20,7 @@ class Controller
     {
         $req = $this->container->pdo->prepare($sql);
         $req->execute();
-        return $req->fetchAll();
+        $req->fetchAll();
+        return var_dump($req);
     }
 }

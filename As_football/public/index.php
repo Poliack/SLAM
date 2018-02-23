@@ -9,4 +9,5 @@ require '../app/container.php';
 
 $app->get('/test',\App\Controllers\PageController::class .':select');
 $app->get('/se-connecter', \App\Controllers\PageController::class.':connexion');
+$app->get('/compte',\App\Controllers\PageController::class.':connexion');
 $app->run();
