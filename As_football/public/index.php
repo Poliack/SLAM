@@ -7,6 +7,6 @@ $app= new \Slim\App([
 ]);
 require '../app/container.php';
 
-$app->get('/',\App\Controllers\PageController::class .':home');
-$app->get('/connexion', \App\Controllers\PageController::class.':connexion');
+$app->get('/test',\App\Controllers\PageController::class .':select');
+$app->get('/se-connecter', \App\Controllers\PageController::class.':connexion');
 $app->run();

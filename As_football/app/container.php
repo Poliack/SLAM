@@ -4,7 +4,7 @@ $container = $app->getContainer();
 // Register component on container
 $container['view'] = function ($container) {
     $dir = dirname(__DIR__);
-    $view = new \Slim\Views\Twig($dir .'/app/views', [
+    $view = new \Slim\Views\Twig($dir .'/app/views',[
         'cache' => false //$dir . '/tmp/cache'
     ]);
 
@@ -13,4 +13,9 @@ $container['view'] = function ($container) {
     $view->addExtension(new Slim\Views\TwigExtension($container['router'], $basePath));
 
     return $view;
+};
+$container['pdo']= function ($container){
+    $pdo= new PDO("mysql:host=localhost;dbname=test-as;",'root','');
+    return $pdo;
+
 };

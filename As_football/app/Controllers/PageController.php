@@ -5,16 +5,17 @@ use http\Env\Request;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
-Class PageController{
-    private $container;
-    public function __construct($container)
-    {
-        $this->container=$container;
-    }
+Class PageController extends Controller {
+
     public function home(RequestInterface $request,ResponseInterface $response){
-        $this->container->view->render($response,'pages/home.twig',['name'=> 'Marc']);
+        $this->render($response,'pages/home.twig',['name'=> 'Marc']);
     }
     public function connexion(RequestInterface $request,ResponseInterface $response){
-        $this->container->view->render($response,'pages/connexion.twig');
+        $this->render($response,'pages/connexion.twig');
+    }
+    public function select(RequestInterface $request, ResponseInterface $response){
+        $this->query($response,'SELECT FROM * users');
+        $this->render($response,'pages/affiche.twig');
+
     }
 }
