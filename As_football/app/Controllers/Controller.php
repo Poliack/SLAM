@@ -2,6 +2,7 @@
 namespace App\Controllers;
 
 use http\Env\Request;
+use http\Env\Response;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 class Controller
@@ -12,15 +13,16 @@ class Controller
         $this->container=$container;
     }
 
-    public function render (ResponseInterface $response, $file){
+    public function render (ResponseInterface $response, $file)
+    {
         $this->container->view->render($response,$file);
 
     }
-    public function query($sql)
+    public function con(Response $response,$sql)
     {
         $req = $this->container->pdo->prepare($sql);
         $req->execute();
-        $req->fetchAll();
-        return var_dump($req);
+        return $req->fetchall();
     }
+
 }

@@ -14,8 +14,15 @@ $container['view'] = function ($container) {
 
     return $view;
 };
-$container['pdo']= function ($container){
-    $pdo= new PDO("mysql:host=localhost;dbname=test-as;",'root','');
+/*$container['pdo']= function ($container){
+    $pdo=new PDO('mysql:dbname=test-as;host=localhost:3306','root','');
+    echo "lol";
     return $pdo;
+
+};*/
+$container['pdo'] = function ($container) {
+    $pdo = new PDO ('mysql:host=localhost;dbname=test-as;charset=utf-8','root','');
+    return $pdo;
+
 
 };

@@ -4,16 +4,31 @@ namespace App\Controllers;
 use http\Env\Request;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
+use Slim\Http\Response;
 
 Class PageController extends Controller {
     // FUNCTION TEST
-    public function TEST(RequestInterface $request, ResponseInterface $response){
-        $this->query($response,'Select from * users');
+
+    /**
+     * @param Request $request
+     * @param \http\Env\Response $response
+     */
+    public function test(\http\Env\Request $request, \http\Env\Response $response){
+        $sql = ('SELECT * FROM users');
+        $resultat=$this->con($response,$sql);
+        var_dump($resultat);
         $this->render($response,'pages/affiche.twig');
+
+        die();
+
 
     }
 
-    public function home(RequestInterface $request,ResponseInterface $response){
+    /**
+     * @param RequestInterface $request
+     * @param ResponseInterface $response
+     */
+    public function home(RequestInterface $request, ResponseInterface $response){
         $this->render($response,'pages/home.twig',['name'=> 'Marc']);
     }
     public function connexion(RequestInterface $request,ResponseInterface $response){
