@@ -16,13 +16,19 @@ class Controller
     public function render (ResponseInterface $response, $file)
     {
         $this->container->view->render($response,$file);
-
     }
-    public function con(Response $response,$sql)
+
+    public function render_args(ResponseInterface $response,$file,$args){
+        $this->container->view->render($response,$file,$args);
+    }
+
+    public function con(ResponseInterface $response,$sql)
     {
         $req = $this->container->pdo->prepare($sql);
         $req->execute();
         return $req->fetchall();
     }
+    public function login(ResponseInterface $response){
 
+    }
 }

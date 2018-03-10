@@ -21,7 +21,7 @@ $container['view'] = function ($container) {
 
 };*/
 $container['pdo'] = function ($container) {
-    $pdo = new PDO ('mysql:host=localhost;dbname=test-as;charset=utf-8','root','');
+    $pdo = new PDO ('mysql:host=localhost;dbname=test-as','root','');
     return $pdo;
 
 

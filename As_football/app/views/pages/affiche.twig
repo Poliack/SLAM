@@ -1,2 +1,9 @@
 {% extends 'layouts.twig' %}
 {% block title %}Test{% endblock %}
+{% block contenu %}
+    <ul>
+    {% for lol in user %}
+        <li>{{ lol.email }}</li>
+    {% endfor %}
+    </ul>
+{% endblock %}
