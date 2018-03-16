@@ -13,20 +13,19 @@ class Controller
         $this->container=$container;
     }
 
-    public function render (ResponseInterface $response, $file)
+    public function render (ResponseInterface $response, $file) // url
     {
         $this->container->view->render($response,$file);
     }
 
-    public function render_args(ResponseInterface $response,$file,$args){
+    public function render_args(ResponseInterface $response,$file,$args){ // url avec une paramètre "clé"
         $this->container->view->render($response,$file,$args);
     }
 
     public function con(ResponseInterface $response,$sql)
     {
         $req = $this->container->pdo->prepare($sql);
-        $req->execute();
-        return $req->fetchall();
+        return $req;
     }
     public function login(ResponseInterface $response){
 

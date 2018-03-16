@@ -1,2 +1,8 @@
 {% extends 'layouts.twig' %}
 {% block title %}Mon compte{% endblock %}
+{% block icon %}href='img/compte.png'{% endblock %}
+{% block contenu %}
+    {% for InfoUser in user %}
+         <img src="img/users.png"{{ InfoUser.email }}
+    {% endfor %}
+{% endblock %}
