@@ -9,7 +9,7 @@ error_reporting(E_ALL);
 
 
 $app->post('/login',function (\Slim\Http\Request $request, \Slim\Http\Response $response){
-    $login = $request->getQueryParam('user');
+    $login = $request->getQueryParam('user'); // lien ?user="
     $password = $request->getQueryParam('password');
     $bb=PostConnecter($login,$password);
     $aff = json_encode($bb,JSON_PRETTY_PRINT);
