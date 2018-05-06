@@ -9,9 +9,9 @@ error_reporting(E_ALL);
 
 
 $app->post('/login',function (\Slim\Http\Request $request, \Slim\Http\Response $response){
-    $login = $request->getQueryParam('user'); // lien ?user="
+    $email = $request->getQueryParam('email'); // lien ?user="
     $password = $request->getQueryParam('password');
-    $bb=PostConnecter($login,$password);
+    $bb=PostConnecter($email,$password);
     $aff = json_encode($bb,JSON_PRETTY_PRINT);
     return $aff;
 });
@@ -32,18 +32,22 @@ function Connexion (){ // SQL DATABASE -> 'test-as'
     $pdo = new PDO ('mysql:host=localhost;dbname=test-as','root','');
     return  $pdo;
 }
-function PostConnecter($login,$password){
+function PostConnecter($email,$password){
     session_start();
     try {
-        $sql = "SELECT * FROM users where login = :login AND password= :password"; // vérifie le mot de passe ,  :password = a clé  , affecter par 'password' => $password
+        $sql = "SELECT * FROM users where email = :email AND password = :password"; // vérifie le mot de passe ,  :password = a clé  , affecter par 'password' => $password
         $dbh = Connexion();
         $req = $dbh->prepare($sql);
+
+        /*$req->bindValue(':email',$email,PDO::PARAM_STR);
+        $req->bindValue(':password',$password, PDO::PARAM_STR);*/
         $tb=array(
-            'login' => $login,
+            'email' => $email,
             'password' => $password,
         );
         $req->execute($tb);
         $res = $req->fetch();
+        //console_log($res);
         return $res;
     }catch(PDOException $e){
     return '{"error":'.$e->getMessage().'}}';
@@ -85,5 +89,10 @@ function GetUsers(){
         return 'Non ok '.$e->getMessage();
     }
 }*/
+function console_log( $data ){
+    echo '<script>';
+    echo 'console.log('. json_encode( $data ) .')';
+    echo '</script>';
+}
 $app->run();
 ?>
