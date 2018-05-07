@@ -16,7 +16,7 @@
         <p id="profile-name" class="profile-name-card"></p>
 
             <span id="reauth-email" class="reauth-email"></span>
-            <input type="text" id="inputEmail" name="email" class="form-control" placeholder="User" required autofocus>
+            <input type="text" id="inputEmail" name="email" class="form-control" placeholder="Email" required autofocus>
             <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Mot de passe" required>
             <div id="remember" class="checkbox">
                 <label>
@@ -28,7 +28,9 @@
         <a href="forget-password.html" class="forgot-password">
             Mot de passe oublié ?
         </a>
+        <p id="erreur"> </p>
     </div>
+
     <script src="js/jquery-3.3.1.min.js"></script>
     <script>
         $(document).ready(function(){
@@ -44,16 +46,19 @@
                     url: "/login?email="+email+"&password="+password,   // ?email -> lien QueryParam  ?password
                     success: function (data){
                         console.log(data);
-                        var result=JSON.stringify(data);
-                        alert(result)
-                        if(result=="false"){
-                            alert('lol');
-                            Location.href ='error.html';
-                        }else{
-                            alert('ok');
-                            Success = true;
-                            location.href = 'login.html?email='+email; // renvoie la page  en question
-                        }
+                        alert(data);
+                            if(data=="null"){ // test la données est null
+                                alert('incorrect');
+                                Success = true;
+                                Location.href ='index.html';
+                                document.getElementById("erreur").innerHTML = "Votre email ou votre mot de passe est incorrect";
+                            }else{ //
+                                alert('Login ok');
+                                Success = true;
+                                location.href = 'login.html?email=' + email; // renvoie la page  en question
+                            }
+
+
                     },
                     error: function (data) {
                         console.log(data);

@@ -35,6 +35,7 @@
 
       <a href="forget-password.html" class="forgot-password">
         Mot de passe oublié ?
+        <p id="erreur"> </p>
       </a>
         <script src="js/jquery-3.3.1.min.js"></script>
         <script>
@@ -50,12 +51,13 @@
                         contentType: 'application/json; charset=utf-8',
                         url: "/E4/framakollect/compte?email=+"+user+"&password="+password, //?user="+user +"&password="+password
                         success: function (data){
-                            alert("success");
+
                             console.log(data);
                             var result=JSON.stringify(data); // convertie l'objet en caractère
                             if(result=="null"){
                                 alert(result);
                                 Location.href="index.jsp"
+                                document.getElementById("erreur").innerHTML = "Votre email ou votre mot de passe est incorrect";
                             }else {
                                 Success = true
                                 location.href = "compte.jsp?email="+user; // renvoie la page  en question

@@ -29,13 +29,13 @@ $app->get('/{login}/{mdp}', function (Request $request,Response $response){
 
 
 function Connexion (){ // SQL DATABASE -> 'test-as'
-    $pdo = new PDO ('mysql:host=localhost;dbname=test-as','root','');
+    $pdo = new PDO ('mysql:host=localhost;dbname=as-foot','root','');
     return  $pdo;
 }
 function PostConnecter($email,$password){
     session_start();
     try {
-        $sql = "SELECT * FROM users where email = :email AND password = :password"; // vérifie le mot de passe ,  :password = a clé  , affecter par 'password' => $password
+        $sql = "SELECT * FROM utilisateur where email = :email AND password = :password"; // vérifie le mot de passe ,  :password = a clé  , affecter par 'password' => $password
         $dbh = Connexion();
         $req = $dbh->prepare($sql);
 
@@ -48,15 +48,19 @@ function PostConnecter($email,$password){
         $req->execute($tb);
         $res = $req->fetch();
         //console_log($res);
-        return $res;
+        if($res==true){
+            return $res;
+        }else{
+            return null;
+        }
     }catch(PDOException $e){
-    return '{"error":'.$e->getMessage().'}}';
+    return'{"error":'.$e->getMessage().'}}';
 }
 
 }
 function GetUsers(){
     session_start();
-    $sql= 'SELECT * FROM users';
+    $sql= 'SELECT * FROM utilisateur';
     try{
         $dbh = Connexion();
         $statement = $dbh->prepare($sql);

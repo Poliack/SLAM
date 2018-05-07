@@ -157,6 +157,9 @@ body, html {
     color:#10B9E1;
     font-family: "Berlin Sans FB";
 }
+#erreur{
+    color:red;
+}
 /*Page login*/
 .menu{
     color: #ffffff;
