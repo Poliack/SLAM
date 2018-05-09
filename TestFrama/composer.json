@@ -1,0 +1,9 @@
+{
+  "require": {
+    "ext-mbstring": "*",
+    "ext-mysqli": "*",
+    "ext-json": "*",
+    "ext-pdo": "*",
+    "ext-pdo_mysql": "*"
+  }
+}

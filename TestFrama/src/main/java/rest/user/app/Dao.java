@@ -13,9 +13,10 @@ public class Dao {
         try {
             Class.forName("com.mysql.jdbc.Driver"); // appelle
             out.println("Driver ok");
-            String url = ("jdbc:mysql://localhost/framakollect?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"); // adresse de la base données  mysql://machine/nom de la SGBD
-            String user = ("root");
-            String passwd = ("");
+           // String url = ("jdbc:mysql://localhost/framakollect?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"); // adresse de la base données  mysql://machine/nom de la SGBD
+            String url = ("jdbc:mysql://sl-eu-lon-2-portal.10.dblayer.com:26249/framakollect?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"); // adresse de la base données  mysql://machine/nom de la SGBD
+            String user = ("admin");
+            String passwd = ("FFCMIJDYMIGYZFBP");
             con = DriverManager.getConnection(url, user, passwd);
         } catch (SQLException e) {
             e.printStackTrace();

@@ -1,8 +1,13 @@
 ---
+declared-services:
+    Compose-for-MySQL-tj:
+      label: sio-hautil-sql
+      plan:  Standard
 applications:
-  - name: farmakollect
+  - name: framakollect
+    host: framakollect
     random-route: true
     memory: 256M
-    path: out/artifacts/Farmakollect/farmakollect.war
+    path: out/artifacts/Java_app_Jee_war/Java_app_Jee_war.war
     buildpack: java_buildpack
 

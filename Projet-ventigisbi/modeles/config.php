@@ -11,7 +11,7 @@ function connexion()
     $db_username = 'admin';
     $db_password = 'FFCMIJDYMIGYZFBP';
     $db_name = 'medibase';
-    $db_host = 'sl-eu-lon-2-portal.10.dblayer.com:26249';
+    $db_host ='sl-eu-lon-2-portal.10.dblayer.com:26249';
 
     $dsn = "mysql:host=" . $db_host . ";dbname=" . $db_name . ";charset=utf8";
     try {

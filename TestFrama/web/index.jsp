@@ -59,6 +59,7 @@
                                 Location.href="index.jsp"
                                 document.getElementById("erreur").innerHTML = "Votre email ou votre mot de passe est incorrect";
                             }else {
+                                alert('connexion ok');
                                 Success = true
                                 location.href = "compte.jsp?email="+user; // renvoie la page  en question
                             }

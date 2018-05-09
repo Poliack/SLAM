@@ -1,3 +1,8 @@
+---
+declared-services:
+    Compose-for-MySQL-tj:
+      label: sio-hautil-sql
+      plan:  Standard
 applications:
 - path: .
   memory: 128M
