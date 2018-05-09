@@ -1,0 +1,45 @@
+				/*/////////Header ///////*/
+body{
+
+	background-repeat: no-repeat;
+	background: #00a3e0;
+	font-family: monospace, monospace;
+	color: white;
+}
+/*///Titre///*/
+.title{
+	text-align: center;
+	background: #00a3e0;
+	display: block;
+	margin-top: -1px;
+}
+.container{
+	margin-top: 55px;
+}
+.user{
+	margin-left: 175px;
+	margin-bottom: 50px;
+}
+.btnperso{
+	-webkit-transition-duration: 0.4s; /* Safari */
+	transition-duration: 0.4s; /* Permet de faire la transition entre background-color , 'plus souple'*/
+	color:#ffffff;
+	font-size: 18px;
+	border-radius:15px;
+	background-color: #00a3e0;
+}
+.btnperso:hover {
+	color: #00a3e0;
+	border-radius: 15px;
+	background-color: #ffffff;
+}
+/*///MenuHorizontal//*/
+
+
+/*Page commande */
+
+div.retour{
+	background: white;
+	margin-left: 500px;
+	display: block;
+}

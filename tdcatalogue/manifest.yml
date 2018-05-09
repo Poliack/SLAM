@@ -1,0 +1,8 @@
+applications:
+- path: .
+  memory: 128M
+  instances: 1
+  name: catalogue
+  host: catalogue
+  disk_quota: 1024M
+  buildpack: php_buildpack

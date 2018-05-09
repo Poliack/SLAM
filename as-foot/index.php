@@ -29,7 +29,8 @@ $app->get('/{login}/{mdp}', function (Request $request,Response $response){
 
 
 function Connexion (){ // SQL DATABASE -> 'test-as'
-    $pdo = new PDO ('mysql:host=localhost;dbname=as-foot','root','');
+    $pdo = new PDO ('mysql:host=sl-eu-lon-2-portal.9.dblayer.com:26249;dbname=as-foot','admin','FFCMIJDYMIGYZFBP');
+    // host=sl-eu-lon-2-portal.9.dblayer.com:26249   dbname= as-foot user=admin  passwd=FFCMIJDYMIGYZFBP
     return  $pdo;
 }
 function PostConnecter($email,$password){

@@ -1,0 +1,8 @@
+applications:
+- path: .
+  memory: 128M
+  instances: 1
+  name: ventigisbi
+  host: ventigisbi
+  disk_quota: 1024M
+  buildpack: php_buildpack
