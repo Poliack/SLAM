@@ -15,12 +15,13 @@ $app->post('/login',function (\Slim\Http\Request $request, \Slim\Http\Response $
     $aff = json_encode($bb,JSON_PRETTY_PRINT);
     return $aff;
 });
-/*$app->get('/users',function (Request $request, Response $response){
+$app->get('/users',function (Request $request, Response $response){
     return GetUsers();
 });
-$app->get('/dimitri',function (Request $request,Response $response){
-    return $response->getBody()->write("C'est moi");
+$app->get('/hello',function (Request $request,Response $response){
+    return $response->getBody()->write("hello");
 });
+/*
 $app->get('/{login}/{mdp}', function (Request $request,Response $response){
     $login = $request->getAttribute('login');
     $password = $request->getAttribute('name');
@@ -29,8 +30,9 @@ $app->get('/{login}/{mdp}', function (Request $request,Response $response){
 
 
 function Connexion (){ // SQL DATABASE -> 'test-as'
-    $pdo = new PDO ('mysql:host=sl-eu-lon-2-portal.9.dblayer.com:26249;dbname=as-foot','admin','FFCMIJDYMIGYZFBP');
-    // host=sl-eu-lon-2-portal.9.dblayer.com:26249   dbname= as-foot user=admin  passwd=FFCMIJDYMIGYZFBP
+   $pdo = new PDO ('mysql:localhost;dbname=as-foot','root','');
+    //$pdo = new PDO ('mysql:host=sl-eu-lon-2-portal.9.dblayer.com:26249;dbname=as-foot','admin','FFCMIJDYMIGYZFBP');
+
     return  $pdo;
 }
 function PostConnecter($email,$password){
@@ -48,7 +50,7 @@ function PostConnecter($email,$password){
         );
         $req->execute($tb);
         $res = $req->fetch();
-        //console_log($res);
+        console_log($res);
         if($res==true){
             return $res;
         }else{

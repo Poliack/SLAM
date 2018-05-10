@@ -1,10 +1,10 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <link href="../public/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../public/css/styles.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
     <title>Accueil</title>
-    <link rel="icon" href="../public/img/accueil.png" type="image/x-icon"/>
+    <link rel="icon" href="img/accueil.png" type="image/x-icon"/>
 </head>
 <body>
 <div class="container">
@@ -31,7 +31,7 @@
         <p id="erreur"> </p>
     </div>
 
-    <script src="../public/js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
     <script>
         $(document).ready(function(){
             $('#connexion').click(function () {
@@ -46,10 +46,12 @@
                     url: "/login?email="+email+"&password="+password,   // ?email -> lien QueryParam  ?password
                     success: function (data){
                         console.log(data);
+                        var result=JSON.stringify(data);
                         alert(data);
-                            if(data=="null"){ // test la données est null
+                        alert(result);
+                            if(result==="null"){ // test la données est null
                                 alert('incorrect');
-                                Success = true;
+                                Success = false;
                                 Location.href ='index.html';
                                 document.getElementById("erreur").innerHTML = "Votre email ou votre mot de passe est incorrect";
                             }else{ //
