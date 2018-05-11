@@ -8,9 +8,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <meta charset="utf-8">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <title>Compte</title>
+    <link rel="icon" href="img/accueil.png" type="image/x-icon"/>
+
 </head>
 <body>
+<
 
 </body>
 </html>

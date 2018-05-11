@@ -1,13 +1,15 @@
-package rest.user.app;
+package rest.user.app.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import rest.user.app.dao.Dao;
+import rest.user.app.mapping.Membres;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
 @Path("/framakollect")
 public class Services {
-    ArrayList<User> users = new ArrayList<User>();
+    ArrayList<Membres> users = new ArrayList<Membres>();
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String getUsers() {
@@ -29,10 +31,10 @@ public class Services {
     @Produces(MediaType.APPLICATION_JSON)
     public String  CheckUser(@QueryParam("email") String email,@QueryParam("password") String password){
         System.out.println(email);
-     User check = new User(email.trim(),password);
+     Membres check = new Membres(email.trim(),password);
      ObjectMapper mapper = new ObjectMapper();
      Dao checkUser = new Dao();
-     User res= checkUser.checkUser(check);
+     Membres res= checkUser.checkUser(check);
      String jsonInString = null;
      try {
          jsonInString = mapper.writeValueAsString(res);

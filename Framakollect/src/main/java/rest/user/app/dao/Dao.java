@@ -1,5 +1,8 @@
-package rest.user.app;
+package rest.user.app.dao;
 
+
+import rest.user.app.mapping.Praticien;
+import rest.user.app.mapping.Membres;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -13,10 +16,12 @@ public class Dao {
         try {
             Class.forName("com.mysql.jdbc.Driver"); // appelle
             out.println("Driver ok");
-           // String url = ("jdbc:mysql://localhost/framakollect?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"); // adresse de la base données  mysql://machine/nom de la SGBD
-            String url = ("jdbc:mysql://sl-eu-lon-2-portal.10.dblayer.com:26249/framakollect?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"); // adresse de la base données  mysql://machine/nom de la SGBD
-            String user = ("admin");
-            String passwd = ("FFCMIJDYMIGYZFBP");
+           String url = ("jdbc:mysql://localhost/framakollect?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"); // adresse de la base données  mysql://machine/nom de la SGBD
+            //String url = ("jdbc:mysql://sl-eu-lon-2-portal.10.dblayer.com:26249/framakollect?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"); // adresse de la base données  mysql://machine/nom de la SGBD
+            //String user = ("admin");
+            String user = ("root");
+            //String passwd = ("FFCMIJDYMIGYZFBP");
+            String passwd = ("");
             con = DriverManager.getConnection(url, user, passwd);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -25,19 +30,20 @@ public class Dao {
         }
         return con;
     }
-    public ArrayList<User> SelectAllUser() {
-        ArrayList<User> users = new ArrayList<User>();// Array list  dans chaque methode
+    public ArrayList<Praticien> SelectAllUser() {
+        ArrayList<Praticien> users = new ArrayList<Praticien>();// Array list  dans chaque methode
 // Test ok
         try {
             Connection con2 = this.get();
             Statement reqselect = con2.createStatement(); //  création de la requête
-            ResultSet result = reqselect.executeQuery("select * from users"); //  execution de la requête  Resultset =tableau avec un curseur
+            ResultSet result = reqselect.executeQuery("select * from praticien"); //  execution de la requête  Resultset =tableau avec un curseur
             ResultSetMetaData resultMeta = (ResultSetMetaData) result.getMetaData();
 
             while (result.next()) {  // next() renvoie true or false et s'arete a false automatiquement
                 String email = result.getString(1); // result parcours les lignes , result.getString("N*Colonne)
                 String password = result.getString(2);
-                User u = new User(email, password);
+
+                Praticien u = new Praticien(email, password);
                 users.add(u);//tab(u)  // ajouter au tableau
                 for (int i = 1; i <= resultMeta.getColumnCount(); i++){
                     System.out.print("\t" + resultMeta.getColumnName(i).toUpperCase() + "\t *");
@@ -56,21 +62,21 @@ public class Dao {
             e.printStackTrace();
         }
         return users;
-    }
-    public User checkUser(User u){ // objet de type User
+    }*/
+    public Membres checkUser(Membres u){ // objet de type User
         try {
             Connection con3 = this.get();
-            PreparedStatement psmt = con3.prepareStatement("select * from users where email=? AND password=?");
+            PreparedStatement psmt = con3.prepareStatement("select * from membre where email=? AND password=?");
             psmt.setString(1,u.getEmail());
             psmt.setString(2,u.getPassword());
             System.out.println(psmt);
             ResultSet req = psmt.executeQuery();
             if(req.next()){
                 System.out.println("ok");
-                return u; // retourne l'objet User
+                return u; // retourne l'objet User au client js
             }else {
                 System.out.println("erreur");
-                return null;
+                return null; // retourne
             }
         } catch (SQLException e) {
             e.printStackTrace();
