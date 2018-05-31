@@ -1,67 +1,93 @@
 package rest.user.app.mapping;
 
 public class Medicament {
-    private int MedId;
-    private String MedLabel;
-    private String FamCode;
-    private String MedCompo;
-    private String MedEffet;
-    private String MedContredic;
+    private int medId;
+    private String depotLegal;
+    private String nomCommercial;
+    private String composition;
+    private String effet;
+    private String contreIndic;
+    private String famCode;
 
-    public Medicament(int MedId,String MedLabel,String FamCode,String MedCompo,String MedEffet,String MedContredic){
-        this.MedId=MedId;
-        this.MedLabel=MedLabel;
-        this.FamCode=FamCode;
-        this.MedCompo=MedCompo;
-        this.MedEffet=MedEffet;
-        this.MedContredic=MedContredic;
+    public Medicament(int medId, String depotLegal, String nomCommercial, String effet, String composition, String contreIndic, String famCode) {  // 4 constructeurs  LOL
+        this.medId = medId;
+        this.depotLegal = depotLegal;
+        this.nomCommercial = nomCommercial;
+        this.composition = composition;
+        this.effet = effet;
+        this.contreIndic = contreIndic;
+        this.famCode = famCode;
     }
 
+    public Medicament(int medId, String depotLegal, String nomCommercial, String famCode) { // class Commande
+
+    }
+
+    public Medicament(int medId) { // class famille
+
+    }
+
+    public Medicament(int medId, String depotLegal, String nomCommercial) { // class Prix ht et stock
+
+    }
+
+
     public int getMedId() {
-        return MedId;
+        return medId;
     }
 
     public void setMedId(int medId) {
-        MedId = medId;
+        this.medId = medId;
     }
 
-    public String getMedLabel() {
-        return MedLabel;
+    public String getDepotLegal() {
+        return depotLegal;
     }
 
-    public void setMedLabel(String medLabel) {
-        MedLabel = medLabel;
+    public void setDepotLegal(String depotLegal) {
+        this.depotLegal = depotLegal;
+    }
+
+    public String getNomCommercial() {
+        return nomCommercial;
+    }
+
+    public void setNomCommercial(String nomCommercial) {
+        this.nomCommercial = nomCommercial;
+    }
+
+    public String getComposition() {
+        return composition;
+    }
+
+    public void setComposition(String composition) {
+        this.composition = composition;
+    }
+
+    public String getEffet() {
+        return effet;
+    }
+
+    public void setEffet(String effet) {
+        this.effet = effet;
+    }
+
+    public String getContreIndic() {
+        return contreIndic;
+    }
+
+    public void setContreIndic(String contreIndic) {
+        this.contreIndic = contreIndic;
     }
 
     public String getFamCode() {
-        return FamCode;
+        return famCode;
     }
 
     public void setFamCode(String famCode) {
-        FamCode = famCode;
+        this.famCode = famCode;
     }
 
-    public String getMedCompo() {
-        return MedCompo;
-    }
 
-    public void setMedCompo(String medCompo) {
-        MedCompo = medCompo;
-    }
-
-    public String getMedEffet() {
-        return MedEffet;
-    }
-
-    public void setMedEffet(String medEffet) {
-        MedEffet = medEffet;
-    }
-
-    public String getMedContredic() {
-        return MedContredic;
-    }
-
-    public void setMedContredic(String medContredic) {
-        MedContredic = medContredic;
-    }
 }
+

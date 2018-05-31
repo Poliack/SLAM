@@ -1,20 +1,27 @@
 package rest.user.app.mapping;
 
 public class Acces {
-    private int RoleId;
+    private int idAcces;
     private String Libelle;
 
-    public Acces (int RoleId,String Libelle){
-        this.RoleId=RoleId;
+    public Acces (int idAcces,String Libelle){
+        this.idAcces=idAcces;
         this.Libelle=Libelle;
     }
+    public Acces(int Acces){ // class Specialities
 
-    public int getRoleId() {
-        return RoleId;
     }
 
-    public void setRoleId(int roleId) {
-        RoleId = roleId;
+    public Acces() {
+    }
+
+
+    public int getIdAcces() {
+        return idAcces;
+    }
+
+    public void setIdAcces(int roleId) {
+        idAcces = idAcces;
     }
 
     public String getLibelle() {

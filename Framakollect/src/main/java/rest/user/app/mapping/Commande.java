@@ -1,66 +1,82 @@
 package rest.user.app.mapping;
 
-public class Commande {
-    private  int ComId;
-    private int UserId;
-    private String MedId;
-    private String ComQte;
-    private String ComDate;
-    private String ComEtat;
+public class Commande extends Medicament {
+    private int idCommande;
+    private String depotLegal;
+    private String famCode;
+    private String nomCommercial;
+    private int nbCommande;
+    private double prixHt;
 
-    public Commande(int idcommande,int idmed, String depotlegal,String famcode,String nomcommercial,String nbcommande,int prixht){
-        this.ComId=ComId;
-        this.UserId=UserId;
-        this.MedId=MedId;
-        this.ComQte=ComQte;
-        this.ComDate=ComDate;
-        this.ComEtat=ComEtat;
-    }
 
-    public int getComId() {
-        return ComId;
-    }
+    public Commande (int medId,int idCommande,String depotLegal, String famCode,String nomCommercial,int nbCommande,double prixHt){
+        super(medId,depotLegal,nomCommercial,famCode);
+        this.idCommande=idCommande;
+        this.depotLegal=depotLegal;
+        this.famCode=famCode;
+        this.nomCommercial=nomCommercial;
+        this.nbCommande=nbCommande;
+        this.prixHt=prixHt;
 
-    public void setComId(int comId) {
-        ComId = comId;
     }
 
-    public int getUserId() {
-        return UserId;
+    @Override
+    public int getMedId() {
+        return super.getMedId();
     }
 
-    public void setUserId(int userId) {
-        UserId = userId;
+    @Override
+    public void setMedId(int medId) {
+        super.setMedId(medId);
     }
 
-    public String getMedId() {
-        return MedId;
+    public int getIdCommande() {
+        return idCommande;
     }
 
-    public void setMedId(String medId) {
-        MedId = medId;
+    public void setIdCommande(int idCommande) {
+        this.idCommande = idCommande;
     }
 
-    public String getComQte() {
-        return ComQte;
+    public String getDepotLegal() {
+        return depotLegal;
     }
 
-    public void setComQte(String comQte) {
-        ComQte = comQte;
-    }
-    public String getComDate() {
-        return ComDate;
+    public void setDepotLegal(String depotLegal) {
+        this.depotLegal = depotLegal;
     }
 
-    public void setComDate(String comDate) {
-        ComDate = comDate;
+    public String getFamCode() {
+        return famCode;
     }
 
-    public String getComEtat() {
-        return ComEtat;
+    public void setFamCode(String famCode) {
+        this.famCode = famCode;
     }
 
-    public void setComEtat(String comEtat) {
-        ComEtat = comEtat;
+    public String getNomCommercial() {
+        return nomCommercial;
     }
+
+    public void setNomCommercial(String nomCommercial) {
+        this.nomCommercial = nomCommercial;
+    }
+
+    public int getNbCommande() {
+        return nbCommande;
+    }
+
+    public void setNbCommande(int nbCommande) {
+        this.nbCommande = nbCommande;
+    }
+
+    public double getPrixHt() {
+        return prixHt;
+    }
+
+    public void setPrixHt(double prixHt) {
+        this.prixHt = prixHt;
+    }
+
 }
+

@@ -24,8 +24,8 @@
       <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
       <p id="profile-name" class="profile-name-card"></p>
       <span id="reauth-email" class="reauth-email"></span>
-      <input type="text" id="email" name="email" class="form-control" placeholder="Email" required autofocus>
-      <input type="password" id="password" name="password" class="form-control" placeholder="Mot de passe" required>
+      <input type="text" id="email" name="email" class="form-control" placeholder="Email" required >
+      <input type="password" id="password" name="password" class="form-control" placeholder="Mot de passe" required >
       <div id="remember" class="checkbox">
         <label>
           <input type="checkbox" value="remember-me"> Remember me
@@ -44,12 +44,10 @@
                     var Success = false;
                     var user=$("#email").val();
                     var password=$("#password").val();
-                    alert(user);
-                    alert(password);
                     $.ajax({
                         type: "POST",
                         contentType: 'application/json; charset=utf-8',
-                        url: "/E4/framakollect/compte?email=+"+user+"&password="+password, //?user="+user +"&password="+password
+                        url: "/E4/framakollect/compte?email="+user+"&password="+password, //?user="+user +"&password="+password
                         success: function (data){
 
                             console.log(data);
@@ -59,13 +57,13 @@
                                 Location.href="index.jsp"
                                 document.getElementById("erreur").innerHTML = "Votre email ou votre mot de passe est incorrect";
                             }else {
-                                alert('connexion ok');
                                 Success = true
                                 location.href = "compte.jsp?email="+user; // renvoie la page  en question
                             }
                         },
                         error: function (data) {
                             alert("error");
+                            alert("data");
                             console.log(data);
                             Success = false;
                             Location.href="error.html";

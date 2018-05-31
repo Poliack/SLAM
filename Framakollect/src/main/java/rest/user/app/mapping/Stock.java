@@ -1,47 +1,57 @@
 package rest.user.app.mapping;
 
-public class Stock {
-    private int MedId;
-    private String StoNum;
-    private String StoPrix;
-    private int StoId;
-
-    public Stock(int MedId,String StoNum,String StoPrix,int StoId ) {
-        this.MedId = MedId;
-        this.StoNum = StoNum;
-        this.StoPrix = StoPrix;
-        this.StoId = StoId;
+public class Stock extends Medicament {
+    private int idStock;
+    private int nbStock;
+    public Stock(int idStock,int nbStock,int medId,String depotLocal,String nomCommercial){
+        super(medId,depotLocal,nomCommercial);
+        this.idStock=idStock;
+        this.nbStock=nbStock;
     }
 
+    @Override
     public int getMedId() {
-        return MedId;
+        return super.getMedId();
     }
 
+    @Override
     public void setMedId(int medId) {
-        MedId = medId;
+        super.setMedId(medId);
     }
 
-    public String getStoNum() {
-        return StoNum;
+    @Override
+    public String getDepotLegal() {
+        return super.getDepotLegal();
     }
 
-    public void setStoNum(String stoNum) {
-        StoNum = stoNum;
+    @Override
+    public void setDepotLegal(String depotLegal) {
+        super.setDepotLegal(depotLegal);
     }
 
-    public String getStoPrix() {
-        return StoPrix;
+    @Override
+    public String getNomCommercial() {
+        return super.getNomCommercial();
     }
 
-    public void setStoPrix(String stoPrix) {
-        StoPrix = stoPrix;
+    @Override
+    public void setNomCommercial(String nomCommercial) {
+        super.setNomCommercial(nomCommercial);
     }
 
-    public int getStoId() {
-        return StoId;
+    public int getIdStock() {
+        return idStock;
     }
 
-    public void setStoId(int stoId) {
-        StoId = stoId;
+    public void setIdStock(int idStock) {
+        this.idStock = idStock;
+    }
+
+    public int getNbStock() {
+        return nbStock;
+    }
+
+    public void setNbStock(int nbStock) {
+        this.nbStock = nbStock;
     }
 }
